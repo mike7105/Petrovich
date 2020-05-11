@@ -11,21 +11,23 @@ import time
 
 if __name__ == '__main__':
     try:
-        jsName = r'O:\Progs\Python\Petrovich\result\ремонт 70м2.json'
+        jsName = r'O:\Progs\Python\Petrovich\result\ремонт 66м2_v2.json'
         wbName = jsName.replace('json', 'xlsx')
-        url = "https://moscow.petrovich.ru/estimate/11673276/"
+        url = "https://moscow.petrovich.ru/estimate/11701096/"
+        # "https://moscow.petrovich.ru/estimate/11701036/"
+        # "https://moscow.petrovich.ru/estimate/11673276/"
 
         startTime = time.time()
         print("Read URL")
         print("start time: {}".format(time.ctime(startTime)))
-        # modules.selen.getData(url, jsName)
+        modules.selen.getData(url, jsName)
         finishTime = time.time()
         print("finish time: {}\nduration: {} min".format(time.ctime(finishTime), (finishTime - startTime)/60))
 
         startTime = time.time()
         print("Export Excel")
         print("start time: {}".format(time.ctime(startTime)))
-        modules.export.toExcel(jsName, wbName, "70m2")
+        modules.export.toExcel(jsName, wbName, "66m2")
         finishTime = time.time()
         print("finish time: {}\nduration: {} sec".format(time.ctime(finishTime), (finishTime - startTime)))
 
