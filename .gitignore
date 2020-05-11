@@ -1,0 +1,7 @@
+idea*
+.idea*
+build*
+result*
+petrovich.spec
+*geckodriver.log
+__pycache__*
