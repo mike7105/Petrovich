@@ -8,10 +8,10 @@ from selenium.webdriver import Firefox
 from selenium.webdriver.remote.webelement import WebElement
 
 
-def toint(s: str) -> int:
+def toint(s) -> int:
     """конвертирует в целое, если не получилось в 0
 
-    :param s: строка
+    :param str s: строка
     :return: результируещее целое или 0
     """
     s = s.strip(string.whitespace).replace(' ', '').replace(',', '.')
@@ -21,10 +21,10 @@ def toint(s: str) -> int:
         return 0
 
 
-def tofloat(s: str) -> float:
+def tofloat(s) -> float:
     """конвертирует в число, если не получилось 0.0
 
-    :param s: строка
+    :param str s: строка
     :return: результирующее число с плавающей точкой или 0.0
     """
     s = s.strip(string.whitespace).replace(' ', '').replace(',', '.')
@@ -34,11 +34,11 @@ def tofloat(s: str) -> float:
         return 0.0
 
 
-def getProduct(product: WebElement, browser: Firefox) -> dict:
+def getProduct(product, browser) -> dict:
     """Собирает нужные атрибуты товара в словарь
 
-    :param product: html элемент, где всё искать
-    :param browser: браузер веб драйвер
+    :param WebElement product: html элемент, где всё искать
+    :param Firefox browser: браузер веб драйвер
     :return: словарь с нужными атрибутами товара img name price quant link
     """
     resdict = {}
@@ -65,10 +65,10 @@ def getProduct(product: WebElement, browser: Firefox) -> dict:
     return resdict
 
 
-def getName(elem: WebElement) -> str:
+def getName(elem) -> str:
     """Получает имя текущего узла
 
-    :param elem: текущий узел
+    :param WebElement elem: текущий узел
     :return:
     """
     names = elem.find_elements_by_tag_name('input')
@@ -79,11 +79,11 @@ def getName(elem: WebElement) -> str:
     return name
 
 
-def getData(url: str, jsName: str):
+def getData(url, jsName):
     """Основн функция, которая парсит страницу
 
-    :param url: адрес к странице со списком
-    :param jsName: json файл, куда сохранять итог
+    :param str url: адрес к странице со списком
+    :param str jsName: json файл, куда сохранять итог
     """
     # jsName = r'C:\Users\25430\Notebook_test\python-scraping\ремонт 70м2.json'
     # url = "https://moscow.petrovich.ru/estimate/11673276/"
@@ -101,7 +101,7 @@ def getData(url: str, jsName: str):
     rooms = browser.find_elements_by_css_selector('div[data-test="room-dropdown"]')
     for i, room in enumerate(rooms):
         room.click()
-        name = "{}. {}".format(i, getName(room))
+        name = f"{i}. {getName(room)}"
         print(name)
         home[name] = {}
         # черновые/отделочные материалы

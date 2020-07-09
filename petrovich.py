@@ -19,17 +19,17 @@ if __name__ == '__main__':
 
         startTime = time.time()
         print("Read URL")
-        print("start time: {}".format(time.ctime(startTime)))
+        print(f"start time: {time.ctime(startTime)}")
         modules.selen.getData(url, jsName)
         finishTime = time.time()
-        print("finish time: {}\nduration: {} min".format(time.ctime(finishTime), (finishTime - startTime)/60))
+        print(f"finish time: {time.ctime(finishTime)}\nduration: {(finishTime - startTime) / 60} min")
 
         startTime = time.time()
         print("Export Excel")
-        print("start time: {}".format(time.ctime(startTime)))
+        print(f"start time: {time.ctime(startTime)}")
         modules.export.toExcel(jsName, wbName, "66m2")
         finishTime = time.time()
-        print("finish time: {}\nduration: {} sec".format(time.ctime(finishTime), (finishTime - startTime)))
+        print(f"finish time: {time.ctime(finishTime)}\nduration: {(finishTime - startTime)} sec")
 
     except Exception as e:
         print(e)

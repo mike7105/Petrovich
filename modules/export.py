@@ -9,16 +9,16 @@ from urllib.request import urlopen
 import urllib.error as urEr
 
 
-def writeDict(k: str, v: object, r: int, c: int, wsCur: Worksheet, cfnorm: object, prev=None) -> int:
+def writeDict(k, v, r, c, wsCur, cfnorm, prev=None) -> int:
     """записывает словарь в переданный эксель
 
-    :param k: ключ словаря
-    :param v: значение ключа
-    :param r: строка для записи
-    :param c: колонка для записи
-    :param wsCur: лист, на которы йнадо записывать
-    :param cfnorm: формат закраски ячейки
-    :param prev: список предыдущих листов
+    :param str k: ключ словаря
+    :param object v: значение ключа
+    :param int r: строка для записи
+    :param int c: колонка для записи
+    :param Worksheet wsCur: лист, на которы йнадо записывать
+    :param object cfnorm: формат закраски ячейки
+    :param list prev: список предыдущих листов
     :return: строка, в которую записывали
     """
 
@@ -59,12 +59,12 @@ def writeDict(k: str, v: object, r: int, c: int, wsCur: Worksheet, cfnorm: objec
     return r
 
 
-def toExcel(jsName: str, wbName: str, shName: str = "Sheet1"):
+def toExcel(jsName, wbName, shName = "Sheet1"):
     """Экспортирует json в эксель
 
-    :param jsName: путь к файлу json
-    :param wbName: путь к файлу для экспорта
-    :param shName: название рабочего листа
+    :param str jsName: путь к файлу json
+    :param str wbName: путь к файлу для экспорта
+    :param str shName: название рабочего листа
     """
     fbold = {
         'bold': 1,
